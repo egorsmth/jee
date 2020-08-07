@@ -4,7 +4,9 @@ import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 
 @Named
 @SessionScoped
@@ -13,11 +15,14 @@ public class Accounting implements Serializable {
             -1110733631123456L;
     private String name;
     private LocalDate date;
+    private ArrayList<String> list;
 
     public Accounting(String name, LocalDate date)
     {
         this.name = name;
         this.date = date;
+        String[] a = {"one", "two", "three"};
+        list = (ArrayList<String>) Arrays.asList(a);
     }
 
     public String register() {
@@ -40,4 +45,11 @@ public class Accounting implements Serializable {
         this.name = name;
     }
 
+    public ArrayList<String> getList() {
+        return list;
+    }
+
+    public void setList(ArrayList<String> list) {
+        this.list = list;
+    }
 }
